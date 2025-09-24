@@ -1,0 +1,84 @@
+/* Paleta pastel */
+:root {
+  --bs-primary: #f8a5c2;
+  --bs-secondary: #f6e58d;
+  --bs-success: #a3e4d7;
+  --bs-info: #81ecec;
+  --bs-warning: #fab1a0;
+  --bs-danger: #ff7675;
+}
+
+
+body {
+  background-color: #fff0f5;
+}
+
+.text-pastel {
+    color: #f78fb3 !important;
+}
+
+.fancy-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem; /* un poco más grande */
+    font-weight: 600;
+}
+
+
+.navbar {
+  background-color: var(--bs-primary) !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: white !important;
+}
+
+/* Botones más suaves */
+.btn-primary {
+  background-color: #ffb6c1 !important;
+  border-color: #ffb6c1 !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: #f78fb3 !important;
+  border-color: #f78fb3 !important;
+}
+
+.card {
+  border: 1px solid #ffd1dc;
+  background-color: #fffafc;
+  border-radius: 10px;
+}
+
+
+.card-pastel {
+    background-color: #f78fb3 !important;
+    color: #ffffff !important; /* texto en blanco */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-pastel .card-title,
+.card-pastel .card-text {
+    color: #ffffff !important;
+}
+
+
+.card-pastel:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-pastel img {
+    transition: transform 0.3s ease;
+}
+
+.card-pastel:active img {
+    transform: scale(1.1);
+}
+
+/* Footer en gris suave */
+footer {
+  color: #b5b5b5;
+}

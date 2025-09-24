@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 style="color: #f78fb3; text-align: center"  >Bienvenido al catálogo de Alejandra</h2>
+
+    {% if articles %}
+    <div id="articlesCarousel" class="carousel slide w-75 mx-auto" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner">
+            {% for article in articles %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img src="{{ article.image.url }}"
+                         class="d-block w-100 rounded shadow"
+                         alt="{{ article.name }}"
+                         style="max-height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>{{ article.name }}</h5>
+                        <p>₡ {{ article.price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!--Controls-->
+        <button class="carousel-control-prev" type="button" data-bs-target="#articlesCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#articlesCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    {% else %}
+        <p class="text-center">No hay artículos disponibles aún.</p>
+    {% endif %}
+</div>
+{% endblock %}

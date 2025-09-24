@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4 text-pastel fancy-title">{{ category.name }}</h2>
+
+    <div class="row">
+        {% for product in products %}
+<div class="col-md-4 mb-4">
+    <div class="card card-pastel h-100 shadow-sm d-flex flex-column">
+        <!--use the url of the image to consume from cloudinary-->
+        <img src="{{ product.image.url }}"
+             class="card-img-top"
+             alt="{{ product.name }}"
+             style="height: 200px; object-fit: cover;">
+        <div class="card-body text-center d-flex flex-column justify-content-between">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">₡ {{ product.price }}</p>
+        </div>
+    </div>
+</div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
