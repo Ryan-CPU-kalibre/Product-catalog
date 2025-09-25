@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from decouple import config
 from dotenv import load_dotenv
-
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR/".env")
@@ -19,9 +19,7 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
-print("Cloudinary URL:", os.getenv("CLOUDINARY_URL"))
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,13 +33,6 @@ INSTALLED_APPS = [
 
 
 ]
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dgmoo6c56',
-    'API_KEY': '215587349786344',
-    'API_SECRET': 'fwg5GReLbdNMpQVbosGHofpXjzg',
-}
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,10 +69,9 @@ WSGI_APPLICATION = 'AleStore.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL")
+    )
 }
 
 
