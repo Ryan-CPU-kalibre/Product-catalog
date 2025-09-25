@@ -17,6 +17,14 @@ body {
     color: #f78fb3 !important;
 }
 
+@media (max-width: 768px) {
+    .container {
+        max-width: 100% !important;
+    }
+}
+
+
+
 .fancy-title {
     font-family: 'Dancing Script', cursive;
     font-size: 2.5rem; /* un poco más grande */
